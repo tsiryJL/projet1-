@@ -1,23 +1,30 @@
-#création d'une methode pour pyramide 
-def full_pyramide
-puts "ecrire un nombre entier positive "
-nbr = gets.chomp.to_i
+def nb_floor
+    puts "Entrer le nombre d'étage que vous voulez:"
+    print "> "
+  floor = gets.chomp.to_i
+end 
 
-if nbr < 0
-		puts "vous avez saisie un entier negative."
-	else
-	#premier pyramide 
-n = 1
-	while n <= nbr
-	puts ("* " * n)
-	n += 1
-	end
-end
+def set_floor_up(total,current)
+    print " " * (current - total)
+    print "#" * (2 * total - 1)
+    puts  #Sauter à la ligne
 end
 
-	#second pyramide	
-nbr.downto(1) do |k|
-	k.times { print "* " }
-	puts
+def set_floor_down(total,current)
+  
+    print " " * (total)
+    print "#" * ((current - total) * 2 - 1)
+    puts  #Sauter à la ligne
 end
-full_pyramide
+
+def wtf_pyramid(final_floor)
+    puts "Voici la pyramide"
+  final_floor.times do |current|
+      set_floor_up(current + 1,final_floor)
+end  
+  
+  final_floor.times do |current|
+      set_floor_down(current + 1 ,final_floor)
+  end
+end
+wtf_pyramid(nb_floor)
